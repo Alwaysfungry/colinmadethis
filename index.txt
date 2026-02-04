@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="zh-CN"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com https://player.vimeo.com; frame-src 'self' https://www.youtube.com https://trytako.com https://player.vimeo.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colin's Portfolio</title>
@@ -616,18 +616,6 @@
             box-shadow: inset 2px 2px 4px var(--shadow-dark),
                         inset -2px -2px 4px var(--shadow-light);
             border-radius: 10px;
-        }
-
-        /* Vimeo Item */
-        .vimeo-item {
-            padding: 15px;
-            transition: all 0.3s ease;
-        }
-
-        .vimeo-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 8px 8px 16px var(--shadow-dark),
-                        -8px -8px 16px var(--shadow-light);
         }
 
         /* Vibe Coding Grid */
@@ -1266,7 +1254,7 @@
                 gap: 12px;
             }
 
-            .music-item, .video-item, .vimeo-item {
+            .music-item, .video-item {
                 padding: 10px;
             }
 
@@ -1463,24 +1451,24 @@
                 <!-- Amazon Listing Panel - Zoomable -->
                 <div class="works-panel active" id="listing-panel">
                     <div class="gallery-grid">
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 1.webp" data-zoomable="true">
-                            <img src="./assets/images/Amazon Listing Copy 1.webp" alt="Amazon Listing 1" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 1.png" data-zoomable="true">
+                            <img src="./assets/images/Amazon Listing Copy 1.png" alt="Amazon Listing 1" class="gallery-image">
                             <div class="gallery-title">Amazon Listing Copy 1</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 2.webp" data-zoomable="true">
-                            <img src="./assets/images/Amazon Listing Copy 2.webp" alt="Amazon Listing 2" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 2.png" data-zoomable="true">
+                            <img src="./assets/images/Amazon Listing Copy 2.png" alt="Amazon Listing 2" class="gallery-image">
                             <div class="gallery-title">Amazon Listing Copy 2</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 3.webp" data-zoomable="true">
-                            <img src="./assets/images/Amazon Listing Copy 3.webp" alt="Amazon Listing 3" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 3.png" data-zoomable="true">
+                            <img src="./assets/images/Amazon Listing Copy 3.png" alt="Amazon Listing 3" class="gallery-image">
                             <div class="gallery-title">Amazon Listing Copy 3</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 4.webp" data-zoomable="true">
-                            <img src="./assets/images/Amazon Listing Copy 4.webp" alt="Amazon Listing 4" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 4.png" data-zoomable="true">
+                            <img src="./assets/images/Amazon Listing Copy 4.png" alt="Amazon Listing 4" class="gallery-image">
                             <div class="gallery-title">Amazon Listing Copy 4</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 5.webp" data-zoomable="true">
-                            <img src="./assets/images/Amazon Listing Copy 5.webp" alt="Amazon Listing 5" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Amazon Listing Copy 5.png" data-zoomable="true">
+                            <img src="./assets/images/Amazon Listing Copy 5.png" alt="Amazon Listing 5" class="gallery-image">
                             <div class="gallery-title">Amazon Listing Copy 5</div>
                         </div>
                     </div>
@@ -1489,24 +1477,24 @@
                 <!-- Creative Copy Panel - Zoomable -->
                 <div class="works-panel" id="creative-panel">
                     <div class="gallery-grid">
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 1.webp" data-zoomable="true">
-                            <img src="./assets/images/Marketing Copy 1.webp" alt="Marketing Copy 1" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 1.png" data-zoomable="true">
+                            <img src="./assets/images/Marketing Copy 1.png" alt="Marketing Copy 1" class="gallery-image">
                             <div class="gallery-title">Marketing Copy 1</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 2.webp" data-zoomable="true">
-                            <img src="./assets/images/Marketing Copy 2.webp" alt="Marketing Copy 2" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 2.png" data-zoomable="true">
+                            <img src="./assets/images/Marketing Copy 2.png" alt="Marketing Copy 2" class="gallery-image">
                             <div class="gallery-title">Marketing Copy 2</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 3.webp" data-zoomable="true">
-                            <img src="./assets/images/Marketing Copy 3.webp" alt="Marketing Copy 3" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 3.png" data-zoomable="true">
+                            <img src="./assets/images/Marketing Copy 3.png" alt="Marketing Copy 3" class="gallery-image">
                             <div class="gallery-title">Marketing Copy 3</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 4.webp" data-zoomable="true">
-                            <img src="./assets/images/Marketing Copy 4.webp" alt="Marketing Copy 4" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Marketing Copy 4.png" data-zoomable="true">
+                            <img src="./assets/images/Marketing Copy 4.png" alt="Marketing Copy 4" class="gallery-image">
                             <div class="gallery-title">Marketing Copy 4</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/Brand Copy.webp" data-zoomable="true" data-long-image="true">
-                            <img src="./assets/images/Brand Copy.webp" alt="Brand Copy" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/Brand Copy.png" data-zoomable="true" data-long-image="true">
+                            <img src="./assets/images/Brand Copy.png" alt="Brand Copy" class="gallery-image">
                             <div class="gallery-title">Brand Copy</div>
                         </div>
                     </div>
@@ -1515,44 +1503,44 @@
                 <!-- Photography Panel -->
                 <div class="works-panel" id="photography-panel">
                     <div class="gallery-grid">
-                        <div class="gallery-item neu-flat" data-image="./assets/images/1.webp">
-                            <img src="./assets/images/1.webp" alt="摄影作品1" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/1.jpg">
+                            <img src="./assets/images/1.jpg" alt="摄影作品1" class="gallery-image">
                             <div class="gallery-title">1</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/2.webp">
-                            <img src="./assets/images/2.webp" alt="摄影作品2" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/2.jpg">
+                            <img src="./assets/images/2.jpg" alt="摄影作品2" class="gallery-image">
                             <div class="gallery-title">2</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/3.webp">
-                            <img src="./assets/images/3.webp" alt="摄影作品3" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/3.jpg">
+                            <img src="./assets/images/3.jpg" alt="摄影作品3" class="gallery-image">
                             <div class="gallery-title">3</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/4.webp">
-                            <img src="./assets/images/4.webp" alt="摄影作品4" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/4.jpg">
+                            <img src="./assets/images/4.jpg" alt="摄影作品4" class="gallery-image">
                             <div class="gallery-title">4</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/5.webp">
-                            <img src="./assets/images/5.webp" alt="摄影作品5" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/5.jpg">
+                            <img src="./assets/images/5.jpg" alt="摄影作品5" class="gallery-image">
                             <div class="gallery-title">5</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/6.webp">
-                            <img src="./assets/images/6.webp" alt="摄影作品6" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/6.jpg">
+                            <img src="./assets/images/6.jpg" alt="摄影作品6" class="gallery-image">
                             <div class="gallery-title">6</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/7.webp">
-                            <img src="./assets/images/7.webp" alt="摄影作品7" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/7.jpg">
+                            <img src="./assets/images/7.jpg" alt="摄影作品7" class="gallery-image">
                             <div class="gallery-title">7</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/8.webp">
-                            <img src="./assets/images/8.webp" alt="摄影作品8" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/8.jpg">
+                            <img src="./assets/images/8.jpg" alt="摄影作品8" class="gallery-image">
                             <div class="gallery-title">8</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/9.webp">
-                            <img src="./assets/images/9.webp" alt="摄影作品9" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/9.jpg">
+                            <img src="./assets/images/9.jpg" alt="摄影作品9" class="gallery-image">
                             <div class="gallery-title">9</div>
                         </div>
-                        <div class="gallery-item neu-flat" data-image="./assets/images/10.webp">
-                            <img src="./assets/images/10.webp" alt="摄影作品10" class="gallery-image" loading="lazy">
+                        <div class="gallery-item neu-flat" data-image="./assets/images/10.jpg">
+                            <img src="./assets/images/10.jpg" alt="摄影作品10" class="gallery-image">
                             <div class="gallery-title">10</div>
                         </div>
                     </div>
@@ -1564,7 +1552,7 @@
                         <!-- Music Items -->
                         <div class="music-item neu-flat" data-audio="./assets/audio/Blueberry Morning Bliss.mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/Blueberry Morning Bliss Cover.webp" alt="Blueberry Morning Bliss" class="music-cover" loading="lazy">
+                                <img src="./assets/images/Blueberry Morning Bliss Cover.png" alt="Blueberry Morning Bliss" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1574,7 +1562,7 @@
                         </div>
                         <div class="music-item neu-flat" data-audio="./assets/audio/Warm Air Between Notes.mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/Warm Air Between Notes Cover.webp" alt="Warm Air Between Notes" class="music-cover" loading="lazy">
+                                <img src="./assets/images/Warm Air Between Notes Cover.png" alt="Warm Air Between Notes" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1584,7 +1572,7 @@
                         </div>
                         <div class="music-item neu-flat" data-audio="./assets/audio/Winter Light Crossing Silence.mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/Winter Light Crossing Silence Cover.webp" alt="Winter Light Crossing Silence" class="music-cover" loading="lazy">
+                                <img src="./assets/images/Winter Light Crossing Silence Cover.png" alt="Winter Light Crossing Silence" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1594,7 +1582,7 @@
                         </div>
                         <div class="music-item neu-flat" data-audio="./assets/audio/Sunlit Loop.mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/Sunlit Loop Cover.webp" alt="Sunlit Loop" class="music-cover" loading="lazy">
+                                <img src="./assets/images/Sunlit Loop Cover.png" alt="Sunlit Loop" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1604,7 +1592,7 @@
                         </div>
                         <div class="music-item neu-flat" data-audio="./assets/audio/ひみつのままで (1).mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/ひみつのままで (1) Cover.webp" alt="ひみつのままで (1)" class="music-cover" loading="lazy">
+                                <img src="./assets/images/ひみつのままで (1) Cover.png" alt="ひみつのままで (1)" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1614,7 +1602,7 @@
                         </div>
                         <div class="music-item neu-flat" data-audio="./assets/audio/ひみつのままで (2).mp3">
                             <div class="music-cover-container">
-                                <img src="./assets/images/ひみつのままで (2) Cover.webp" alt="ひみつのままで (2)" class="music-cover" loading="lazy">
+                                <img src="./assets/images/ひみつのままで (2) Cover.png" alt="ひみつのままで (2)" class="music-cover">
                                 <div class="music-play-btn">
                                     <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
                                     <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
@@ -1622,18 +1610,22 @@
                             </div>
                             <div class="music-title">ひみつのままで (2)</div>
                         </div>
-                        <!-- Video Items - Vimeo Embeds -->
-                        <div class="vimeo-item neu-flat">
-                            <div class="video-thumbnail" style="padding-bottom: 100%; position: relative;">
-                                <iframe src="https://player.vimeo.com/video/1161749490" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" loading="lazy">
-                                </iframe>
+                        <!-- Video Items -->
+                        <div class="video-item neu-flat" data-video="./assets/video/浮于线上画展.mp4">
+                            <div class="video-thumbnail">
+                                <img src="./assets/images/浮于线上画展Cover Photo.png" alt="浮于线上画展">
+                                <div class="video-play-btn">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                </div>
                             </div>
                             <div class="video-title">浮于线上画展</div>
                         </div>
-                        <div class="vimeo-item neu-flat">
-                            <div class="video-thumbnail" style="padding-bottom: 100%; position: relative;">
-                                <iframe src="https://player.vimeo.com/video/1161755144" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen="" loading="lazy">
-                                </iframe>
+                        <div class="video-item neu-flat" data-video="./assets/video/AI动漫.mp4">
+                            <div class="video-thumbnail">
+                                <img src="./assets/images/AI动漫Cover.jpg" alt="AI动漫">
+                                <div class="video-play-btn">
+                                    <svg viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                </div>
                             </div>
                             <div class="video-title">AI动漫</div>
                         </div>
@@ -1648,9 +1640,9 @@
                                 <div class="vibe-card-inner">
                                     <div class="vibe-card-images">
                                         <div class="stacked-images">
-                                            <img src="./assets/images/Text Card Maker 1.webp" alt="Text Card Maker 1" class="stacked-image" loading="lazy">
-                                            <img src="./assets/images/Text Card Maker 2.webp" alt="Text Card Maker 2" class="stacked-image" loading="lazy">
-                                            <img src="./assets/images/Text Card Maker 3.webp" alt="Text Card Maker 3" class="stacked-image" loading="lazy">
+                                            <img src="./assets/images/Text Card Maker 1.png" alt="Text Card Maker 1" class="stacked-image">
+                                            <img src="./assets/images/Text Card Maker 2.png" alt="Text Card Maker 2" class="stacked-image">
+                                            <img src="./assets/images/Text Card Maker 3.png" alt="Text Card Maker 3" class="stacked-image">
                                         </div>
                                     </div>
                                     <div class="vibe-card-content">
@@ -1666,9 +1658,9 @@
                                 <div class="vibe-card-inner">
                                     <div class="vibe-card-images">
                                         <div class="stacked-images">
-                                            <img src="./assets/images/Instant Collage 1.webp" alt="Instant Collage 1" class="stacked-image" loading="lazy">
-                                            <img src="./assets/images/Instant Collage 2.webp" alt="Instant Collage 2" class="stacked-image" loading="lazy">
-                                            <img src="./assets/images/Instant Collage 3.webp" alt="Instant Collage 3" class="stacked-image" loading="lazy">
+                                            <img src="./assets/images/Instant Collage 1.png" alt="Instant Collage 1" class="stacked-image">
+                                            <img src="./assets/images/Instant Collage 2.png" alt="Instant Collage 2" class="stacked-image">
+                                            <img src="./assets/images/Instant Collage 3.png" alt="Instant Collage 3" class="stacked-image">
                                         </div>
                                     </div>
                                     <div class="vibe-card-content">
@@ -1682,7 +1674,7 @@
                         <div class="vibe-card">
                             <a href="https://mybookshelf-sandy.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
                                 <div class="vibe-card-inner">
-                                    <img src="./assets/images/独屿ISLET.webp" alt="独屿 Islet" class="vibe-card-image" loading="lazy">
+                                    <img src="./assets/images/独屿ISLET.jpg" alt="独屿 Islet" class="vibe-card-image">
                                     <div class="vibe-card-content">
                                         <div class="vibe-card-title">独屿 Islet</div>
                                         <div class="vibe-card-desc">个人专属的数字小岛</div>
@@ -2105,10 +2097,20 @@
             }
         });
 
-        // Video Modal (kept for potential future use)
+        // Video Modal
         const videoModal = document.getElementById('videoModal');
         const modalVideo = document.getElementById('modalVideo');
         const videoModalClose = document.getElementById('videoModalClose');
+
+        document.querySelectorAll('.video-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const videoSrc = item.dataset.video;
+                modalVideo.src = videoSrc;
+                videoModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                modalVideo.play();
+            });
+        });
 
         videoModalClose.addEventListener('click', () => {
             modalVideo.pause();
@@ -2164,5 +2166,6 @@
             document.getElementById('scrollIndicator').classList.add('hidden');
         }
     </script>
+
 
 </body></html>
