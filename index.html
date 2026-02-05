@@ -1,100 +1,65 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
-  <title>Your Name</title>
+  <title>Colin's Personal Space</title>
 
-  <!-- ✅ CSP FIX (Cloudflare audio allowed) -->
   <meta http-equiv="Content-Security-Policy"
     content="
-      default-src 'self';
-      script-src 'self' 'unsafe-inline';
-      style-src 'self' 'unsafe-inline';
+      default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:;
+      script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net;
+      media-src 'self' data: blob: https://audio.lifeofcy.cc;
+      connect-src 'self' https://static.cloudflareinsights.com;
       img-src 'self' data: https:;
-      media-src 'self' https://*.cloudflare.com https://*.cloudflarestream.com;
-      connect-src 'self' https://*.cloudflare.com;
+      style-src 'self' 'unsafe-inline' https:;
+      upgrade-insecure-requests;
     ">
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- your existing styles untouched -->
   <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
 
-  <!-- ========================= -->
-  <!-- LOGO / AUDIO TRIGGER AREA -->
-  <!-- ========================= -->
-
   <div id="logo" class="logo">
-    <!-- your SVG / animation stays the same -->
+    <img src="your-logo.svg" alt="Logo">
   </div>
 
-  <!-- ================= -->
-  <!-- AUDIO ELEMENT -->
-  <!-- ================= -->
-  <!-- ✅ Dual-format fallback -->
-  <audio id="welcomeAudio" preload="auto">
-    <source src="https://your.cloudflare.url/welcome.webm" type="audio/webm">
-    <source src="https://your.cloudflare.url/welcome.mp3" type="audio/mpeg">
-  </audio>
+  <audio id="welcomeAudio" preload="auto" crossorigin="anonymous">
+    <source src="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Welcome%20voice.webm" type="audio/webm">
+    </audio>
 
-  <!-- ================= -->
-  <!-- SCRIPT -->
-  <!-- ================= -->
   <script>
     const logo = document.getElementById('logo');
     const audio = document.getElementById('welcomeAudio');
 
-    let isPlaying = false;
-
-    function startAnimation() {
-      logo.classList.add('playing');
-    }
-
-    function stopAnimation() {
-      logo.classList.remove('playing');
-    }
-
-    logo.addEventListener('click', async () => {
-      try {
-        if (!isPlaying) {
-          await audio.play();
-        } else {
-          audio.pause();
-        }
-      } catch (err) {
-        console.error('Audio playback failed:', err);
-        stopAnimation();
-        isPlaying = false;
+    // ✅ 动画与音频状态同步：不再使用 isPlaying 变量，直接监听音频原生事件
+    logo.addEventListener('click', () => {
+      if (audio.paused) {
+        audio.play().catch(err => console.error('播放失败:', err));
+      } else {
+        audio.pause();
       }
     });
 
-    /* ============================
-       AUDIO STATE SYNC (CRITICAL)
-       ============================ */
-
-    audio.addEventListener('play', () => {
-      isPlaying = true;
-      startAnimation();
+    // 监听播放状态以开启旋转
+    audio.addEventListener('playing', () => {
+      logo.classList.add('playing');
     });
 
+    // 监听暂停和结束以停止旋转
     audio.addEventListener('pause', () => {
-      isPlaying = false;
-      stopAnimation();
+      logo.classList.remove('playing');
     });
 
     audio.addEventListener('ended', () => {
-      isPlaying = false;
-      stopAnimation();
+      logo.classList.remove('playing');
       audio.currentTime = 0;
     });
 
+    // 调试报错
     audio.addEventListener('error', (e) => {
-      console.error('Audio error:', e);
-      isPlaying = false;
-      stopAnimation();
+      console.error('音频加载错误，请检查链接或 CSP:', e);
     });
   </script>
 
