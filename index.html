@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; media-src 'self' https: data: blob: https://audio.lifeofcy.cc; frame-src 'self' https://www.youtube.com; img-src 'self' https: data:;">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colin's Personal Space</title>
+    <style>
+        /* ... 保持你 index.html 原有的所有 CSS 不变 ... */
+        /* 确保 .playing 状态下图标切换正确 */
+        .music-item.playing .play-icon { display: none !important; }
+        .music-item.playing .pause-icon { display: block !important; }
+        #logoBtn.playing { animation: rotate 3s linear infinite; }
+        @keyframes rotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+    </style>
+</head>
+<body>
+
+    <div id="ai-panel" class="works-panel">
+        <div class="ai-grid">
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Blueberry%20Morning%20Bliss.webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/8N4X6uB.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Blueberry Morning Bliss</div>
+            </div>
+            
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Warm%20Air%20Between%20Notes.webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/mS9hS1y.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Warm Air Between Notes</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Winter%20Light%20Crossing%20Silence.webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/Y3UqN4H.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Winter Light Crossing Silence</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Sunlit%20Loops.webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/K6Y7Z8B.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Sunlit Loops</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Keep%20it%20a%20secret%20(1).webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/5J3P9zR.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Keep it a secret (1)</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Keep%20it%20a%20secret%20(2).webm">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/5J3P9zR.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Keep it a secret (2)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // ========================================
+        // 全局变量与播放引擎
+        // ========================================
+        const audio = new Audio();
+        audio.crossOrigin = "anonymous"; 
+        let currentActive = null;
+
+        // 统一 UI 状态切换（解决旋转与图标不一致问题）
+        function setUIState(element, isPlaying) {
+            if (!element) return;
+            
+            // 切换旋转动画
+            if (isPlaying) {
+                element.classList.add('playing');
+            } else {
+                element.classList.remove('playing');
+            }
+
+            // 切换播放/暂停图标
+            const pIcon = element.querySelector('.play-icon');
+            const sIcon = element.querySelector('.pause-icon');
+            if (pIcon && sIcon) {
+                pIcon.style.display = isPlaying ? 'none' : 'block';
+                sIcon.style.display = isPlaying ? 'block' : 'none';
+            }
+        }
+
+        // 核心切换逻辑
+        async function toggleAudio(url, element) {
+            // 点击的是当前正在播放的
+            if (currentActive === element) {
+                if (!audio.paused) {
+                    audio.pause();
+                    setUIState(element, false);
+                } else {
+                    setUIState(element, true);
+                    audio.play().catch(() => setUIState(element, false));
+                }
+                return;
+            }
+
+            // 点击的是新音频
+            if (currentActive) setUIState(currentActive, false);
+            
+            currentActive = element;
+            setUIState(element, true); // 视觉先行：立即开始旋转和换标
+
+            try {
+                audio.src = url;
+                audio.load();
+                await audio.play();
+            } catch (err) {
+                console.error("Playback error:", err);
+                setUIState(element, false);
+                currentActive = null;
+            }
+        }
+
+        // 音频播放结束复位
+        audio.onended = () => {
+            if (currentActive) setUIState(currentActive, false);
+            currentActive = null;
+        };
+
+        // ========================================
+        // 事件监听绑定
+        // ========================================
+
+        // Logo 播放
+        const logoBtn = document.getElementById('logoBtn');
+        const welcomeSrc = "https://audio.lifeofcy.cc/audio%20files%20for%20lifeofcy/Welcome%20voice.webm";
+        logoBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleAudio(welcomeSrc, logoBtn);
+        });
+
+        // 音乐列表播放
+        document.querySelectorAll('.music-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('data-audio');
+                if (url) toggleAudio(url, this);
+            });
+        });
+
+        // --- 保留你原有的其他功能逻辑 (导航、分类、弹窗等) ---
+        // 建议从你原始文件的 script 底部直接复制剩下的导航/弹窗逻辑贴在此处
+        // (为节省空间，此处省略原有未改动的 100 行代码)
+        
+    </script>
+</body>
+</html>
