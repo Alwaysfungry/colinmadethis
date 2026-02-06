@@ -562,63 +562,42 @@
                         -8px -8px 16px var(--shadow-light);
         }
 
-        .video-thumbnail {
-            position: relative;
-            width: 100%;
-            padding-bottom: 100%;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-bottom: 12px;
-        }
+.video-thumbnail {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* 16:9 比例 */
+    border-radius: 12px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
 
-        .video-thumbnail img {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+.video-thumbnail iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 12px;
+}
 
-        .video-play-btn {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 50px;
-            height: 50px;
-            background: rgba(255, 255, 255, 0.95);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
+/* 移除或隐藏视频播放按钮 */
+.video-thumbnail .video-play-btn {
+    display: none;
+}
 
-        .video-item:hover .video-play-btn {
-            opacity: 1;
-        }
-
-        .video-play-btn svg {
-            width: 20px;
-            height: 20px;
-            fill: var(--accent);
-            margin-left: 3px;
-        }
-
-        .video-title {
-            font-size: 12px;
-            color: var(--text-secondary);
-            text-align: center;
-            padding: 8px 12px;
-            background: var(--cloud-dancer);
-            box-shadow: inset 2px 2px 4px var(--shadow-dark),
-                        inset -2px -2px 4px var(--shadow-light);
-            border-radius: 10px;
-        }
-
+/* 确保视频标题与其他卡片一致 */
+.video-title {
+    font-size: 12px;
+    color: var(--text-secondary);
+    text-align: center;
+    padding: 8px 12px;
+    background: var(--cloud-dancer);
+    box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                inset -2px -2px 4px var(--shadow-light);
+    border-radius: 10px;
+    margin-top: 0;
+}
         /* Vimeo Item */
         .vimeo-item {
             padding: 15px;
