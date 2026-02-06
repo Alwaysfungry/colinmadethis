@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colin's Personal Space</title>
+
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://static.cloudflareinsights.com https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://cdn.tailwindcss.com; media-src 'self' https: data: blob: https://audio.lifeofcy.cc; img-src 'self' https: data:; frame-src 'self' https://www.youtube.com; upgrade-insecure-requests;">
+
+    <style>
+        /* 音频控制必需样式 */
+        .music-item .pause-icon { display: none; }
+        .music-item.playing .play-icon { display: none !important; }
+        .music-item.playing .pause-icon { display: block !important; }
+        
+        #logoBtn.playing, .music-item.playing .music-cover {
+            animation: rotateFull 6s linear infinite;
+        }
+        @keyframes rotateFull {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        #logoBtn, .music-item { cursor: pointer; user-select: none; }
+    </style>
+</head>
+<body>
+
+    <div id="logoBtn" class="logo-container">
+        </div>
+
+    <div id="ai-panel" class="works-panel active">
+        <div class="ai-grid">
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Blueberry%20Morning%20Bliss.mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/8N4X6uB.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Blueberry Morning Bliss</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Warm%20Air%20Between%20Notes.mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/mS9hS1y.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Warm Air Between Notes</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Winter%20Light%20Crossing%20Silence.mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/Y3UqN4H.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Winter Light Crossing Silence</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Sunlit%20Loops.mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/K6Y7Z8B.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Sunlit Loops</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Keep%20it%20a%20secret%20(1).mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/5J3P9zR.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Keep it a secret (1)</div>
+            </div>
+
+            <div class="music-item neu-flat" data-audio="https://audio.lifeofcy.cc/Keep%20it%20a%20secret%20(2).mp3">
+                <div class="music-cover-container">
+                    <img src="https://i.imgur.com/5J3P9zR.jpg" class="music-cover">
+                    <div class="music-play-btn">
+                        <svg class="play-icon" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5v14l11-7z"/></svg>
+                        <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><path fill="currentColor" d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+                    </div>
+                </div>
+                <div class="music-title">Keep it a secret (2)</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const audioSystem = new Audio();
+        audioSystem.crossOrigin = "anonymous";
+        let activeEl = null;
+
+        function updateUI(el, isPlaying) {
+            if (!el) return;
+            isPlaying ? el.classList.add('playing') : el.classList.remove('playing');
+            const play = el.querySelector('.play-icon');
+            const pause = el.querySelector('.pause-icon');
+            if (play && pause) {
+                play.style.display = isPlaying ? 'none' : 'block';
+                pause.style.display = isPlaying ? 'block' : 'none';
+            }
+        }
+
+        async function playTrack(url, el) {
+            if (activeEl === el) {
+                if (!audioSystem.paused) {
+                    audioSystem.pause();
+                    updateUI(el, false);
+                } else {
+                    updateUI(el, true);
+                    audioSystem.play().catch(() => updateUI(el, false));
+                }
+                return;
+            }
+
+            if (activeEl) updateUI(activeEl, false);
+            activeEl = el;
+            updateUI(el, true);
+
+            try {
+                audioSystem.src = url;
+                audioSystem.load();
+                await audioSystem.play();
+            } catch (err) {
+                console.error("Playback Error:", err);
+                updateUI(el, false);
+                activeEl = null;
+            }
+        }
+
+        audioSystem.onended = () => {
+            if (activeEl) updateUI(activeEl, false);
+            activeEl = null;
+        };
+
+        // Logo 绑定 
+        document.getElementById('logoBtn')?.addEventListener('click', (e) => {
+            e.preventDefault();
+            playTrack("https://audio.lifeofcy.cc/Welcome%20voice.mp3", document.getElementById('logoBtn'));
+        });
+
+        // 列表绑定
+        document.querySelectorAll('.music-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                e.preventDefault();
+                const url = this.getAttribute('data-audio');
+                if (url) playTrack(url, this);
+            });
+        });
+    </script>
+</body>
+</html>
