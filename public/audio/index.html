@@ -1,0 +1,2170 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com; frame-src 'self' https://www.youtube.com https://trytako.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; upgrade-insecure-requests; block-all-mixed-content;"><meta name="x-poe-datastore-behavior" content="local_only"><meta http-equiv="Content-Security-Policy" content="default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https://cdnjs.cloudflare.com https://cdn.jsdelivr.net https://code.jquery.com https://unpkg.com https://d3js.org https://threejs.org https://cdn.plot.ly https://stackpath.bootstrapcdn.com https://maps.googleapis.com https://cdn.tailwindcss.com https://ajax.googleapis.com https://kit.fontawesome.com https://cdn.datatables.net https://maxcdn.bootstrapcdn.com https://code.highcharts.com https://tako-static-assets-production.s3.amazonaws.com https://www.youtube.com https://fonts.googleapis.com https://fonts.gstatic.com https://pfst.cf2.poecdn.net https://puc.poecdn.net https://i.imgur.com https://wikimedia.org https://*.icons8.com https://*.giphy.com https://picsum.photos https://images.unsplash.com https://github.com https://raw.githubusercontent.com; frame-src 'self' https://www.youtube.com https://trytako.com https://player.vimeo.com https://vimeo.com; child-src 'self'; manifest-src 'self'; worker-src 'self'; media-src 'self' https: data: blob:; upgrade-insecure-requests; block-all-mixed-content;"><meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colin's Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Noto+Sans+SC:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --cloud-dancer: #E8E4DC;
+            --cloud-light: #EFEBE5;
+            --cloud-dark: #D5D1C9;
+            --text-primary: #2C2C2C;
+            --text-secondary: #6B6B6B;
+            --text-light: #999999;
+            --accent: #7C9082;
+            --shadow-light: rgba(255, 255, 255, 0.7);
+            --shadow-dark: rgba(163, 157, 147, 0.5);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Noto Sans SC', 'Inter', sans-serif;
+            background-color: var(--cloud-dancer);
+            color: var(--text-primary);
+            line-height: 1.8;
+            overflow-x: hidden;
+        }
+
+        /* Neumorphism Base Styles */
+        .neu-flat {
+            background: var(--cloud-dancer);
+            box-shadow: 6px 6px 12px var(--shadow-dark),
+                        -6px -6px 12px var(--shadow-light);
+            border-radius: 16px;
+        }
+
+        .neu-pressed {
+            background: var(--cloud-dancer);
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                        inset -3px -3px 6px var(--shadow-light);
+            border-radius: 16px;
+        }
+
+        /* Top Navigation Bar */
+        .top-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--cloud-dancer);
+        }
+
+        /* Logo Button */
+        .logo-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            background: var(--cloud-dancer);
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                        -4px -4px 8px var(--shadow-light);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: box-shadow 0.3s ease;
+            text-decoration: none;
+        }
+
+        .logo-btn:hover {
+            box-shadow: 2px 2px 4px var(--shadow-dark),
+                        -2px -2px 4px var(--shadow-light);
+        }
+
+        .logo-btn:active {
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            line-height: 1.2;
+        }
+
+        .logo-zh {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--text-primary);
+        }
+
+        .logo-en {
+            font-size: 12px;
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        /* Audio Hint */
+        .audio-hint {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+            padding-left: 8px;
+            border-left: 1px solid var(--cloud-dark);
+            margin-left: 4px;
+        }
+
+        .audio-hint span {
+            width: 2px;
+            height: 12px;
+            background: var(--text-light);
+            border-radius: 1px;
+            opacity: 0.4;
+            animation: fadeWave 2s ease-in-out infinite;
+        }
+
+        .audio-hint span:nth-child(1) { animation-delay: 0s; height: 8px; }
+        .audio-hint span:nth-child(2) { animation-delay: 0.2s; height: 14px; }
+        .audio-hint span:nth-child(3) { animation-delay: 0.4s; height: 10px; }
+        .audio-hint span:nth-child(4) { animation-delay: 0.6s; height: 16px; }
+
+        @keyframes fadeWave {
+            0%, 100% { opacity: 0.2; transform: scaleY(0.6); }
+            50% { opacity: 0.6; transform: scaleY(1); }
+        }
+
+        .logo-btn.playing .audio-hint span {
+            opacity: 0.8;
+            animation: activeWave 0.6s ease-in-out infinite;
+        }
+
+        @keyframes activeWave {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1.2); }
+        }
+
+        /* Navigation Menu */
+        .nav-menu {
+            display: flex;
+            gap: 12px;
+        }
+
+        /* Nav Button - No transitions */
+        .nav-btn {
+            padding: 12px 22px;
+            background: var(--cloud-dancer);
+            border-radius: 14px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            border: none;
+        }
+
+        /* Default state - raised */
+        .nav-btn:not(.active) {
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                        -4px -4px 8px var(--shadow-light);
+        }
+
+        /* Hover state - slightly less raised (only for non-active) */
+        .nav-btn:not(.active):hover {
+            box-shadow: 2px 2px 4px var(--shadow-dark),
+                        -2px -2px 4px var(--shadow-light);
+        }
+
+        /* Active state - pressed */
+        .nav-btn.active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                        inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .nav-zh {
+            font-size: 14px;
+            font-weight: 500;
+            display: block;
+        }
+
+        .nav-btn:not(.active) .nav-zh {
+            color: var(--text-primary);
+        }
+
+        .nav-btn.active .nav-zh {
+            color: var(--accent);
+        }
+
+        .nav-en {
+            font-size: 11px;
+            display: block;
+        }
+
+        .nav-btn:not(.active) .nav-en {
+            color: var(--text-secondary);
+        }
+
+        .nav-btn.active .nav-en {
+            color: var(--accent);
+        }
+
+        /* Main Content */
+        .main-content {
+            padding-top: 100px;
+        }
+
+        /* Sections */
+        .section {
+            min-height: 100vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .section-inner {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        /* Home Section */
+        #home {
+            padding-top: 80px;
+            justify-content: center;
+        }
+
+        /* About Box */
+        .about-box {
+            padding: 35px 40px;
+            margin-bottom: 30px;
+        }
+
+        .about-content {
+            font-size: 15px;
+            line-height: 2;
+            color: var(--text-primary);
+        }
+
+        .about-zh {
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .about-en {
+            color: var(--text-secondary);
+            font-size: 14px;
+            text-align: justify;
+        }
+
+        /* Career Box */
+        .career-box {
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .career-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 30px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .career-tags-preview {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            flex: 1;
+        }
+
+        .career-tag-preview {
+            padding: 6px 14px;
+            background: var(--cloud-dancer);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+            border-radius: 20px;
+            font-size: 12px;
+            color: var(--text-secondary);
+        }
+
+        .career-toggle {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--cloud-dancer);
+            box-shadow: 3px 3px 6px var(--shadow-dark),
+                        -3px -3px 6px var(--shadow-light);
+            border-radius: 50%;
+            margin-left: 20px;
+            flex-shrink: 0;
+            transition: all 0.3s ease;
+        }
+
+        .career-toggle svg {
+            width: 14px;
+            height: 14px;
+            stroke: var(--text-secondary);
+            transition: transform 0.3s ease;
+        }
+
+        .career-box.expanded .career-toggle svg {
+            transform: rotate(45deg);
+        }
+
+        .career-box.expanded .career-toggle {
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+        }
+
+        .career-list {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .career-box.expanded .career-list {
+            max-height: 1500px;
+        }
+
+        .career-item {
+            padding: 25px 30px;
+            border-top: 1px solid var(--cloud-dark);
+        }
+
+        .career-time-company {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-primary);
+            margin-bottom: 12px;
+        }
+
+        .career-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .career-tag {
+            padding: 5px 12px;
+            background: var(--cloud-dancer);
+            box-shadow: 2px 2px 4px var(--shadow-dark),
+                        -2px -2px 4px var(--shadow-light);
+            border-radius: 15px;
+            font-size: 11px;
+            color: var(--text-secondary);
+        }
+
+        /* Works Section */
+        #works {
+            padding-top: 60px;
+        }
+
+        .works-container {
+            width: 100%;
+            max-width: 1200px;
+        }
+
+        /* Category Navigation */
+        .category-nav {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+
+        .category-btn {
+            padding: 14px 28px;
+            background: var(--cloud-dancer);
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                        -4px -4px 8px var(--shadow-light);
+            border-radius: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-secondary);
+            border: none;
+            font-family: inherit;
+        }
+
+        .category-btn:hover {
+            color: var(--text-primary);
+            box-shadow: 2px 2px 4px var(--shadow-dark),
+                        -2px -2px 4px var(--shadow-light);
+        }
+
+        .category-btn.active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                        inset -3px -3px 6px var(--shadow-light);
+            color: var(--accent);
+        }
+
+        /* Works Panels */
+        .works-panel {
+            display: none;
+        }
+
+        .works-panel.active {
+            display: block;
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 25px;
+        }
+
+        .gallery-item {
+            padding: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+        }
+
+        .gallery-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-radius: 12px;
+            margin-bottom: 10px;
+        }
+
+        .gallery-title {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 8px 12px;
+            background: var(--cloud-dancer);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+            border-radius: 10px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* AI Panel Grid */
+        .ai-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        /* Music Item */
+        .music-item {
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+        }
+
+        .music-cover-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            margin-bottom: 12px;
+        }
+
+        .music-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+            box-shadow: 4px 4px 8px var(--shadow-dark),
+                        -4px -4px 8px var(--shadow-light);
+            transition: all 0.3s ease;
+        }
+
+        .music-item.playing .music-cover {
+            animation: rotate 8s linear infinite;
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .music-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .music-item:hover .music-play-btn {
+            opacity: 1;
+        }
+
+        .music-play-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+            margin-left: 3px;
+        }
+
+        .music-item.playing .music-play-btn svg {
+            margin-left: 0;
+        }
+
+        .music-title {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 8px 12px;
+            background: var(--cloud-dancer);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+            border-radius: 10px;
+        }
+
+        /* Video Item */
+        .video-item {
+            padding: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .video-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-item:hover .video-play-btn {
+            opacity: 1;
+        }
+
+        .video-play-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--accent);
+            margin-left: 3px;
+        }
+
+        .video-title {
+            font-size: 12px;
+            color: var(--text-secondary);
+            text-align: center;
+            padding: 8px 12px;
+            background: var(--cloud-dancer);
+            box-shadow: inset 2px 2px 4px var(--shadow-dark),
+                        inset -2px -2px 4px var(--shadow-light);
+            border-radius: 10px;
+        }
+
+        /* Vimeo Item */
+        .vimeo-item {
+            padding: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .vimeo-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+        }
+
+        /* Vibe Coding Grid */
+        .vibe-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .vibe-card {
+            transition: transform 0.4s ease;
+            cursor: pointer;
+        }
+
+        .vibe-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .vibe-card-inner {
+            border-radius: 20px;
+            overflow: hidden;
+            background: var(--cloud-dancer);
+            box-shadow: 6px 6px 12px var(--shadow-dark),
+                        -6px -6px 12px var(--shadow-light);
+            transition: all 0.4s ease;
+        }
+
+        .vibe-card:hover .vibe-card-inner {
+            box-shadow: 10px 10px 20px var(--shadow-dark),
+                        -10px -10px 20px var(--shadow-light);
+        }
+
+        /* Stacked Images Container */
+        .vibe-card-images {
+            position: relative;
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .stacked-images {
+            position: relative;
+            width: 180px;
+            height: 200px;
+        }
+
+        .stacked-image {
+            position: absolute;
+            width: 150px;
+            height: 175px;
+            object-fit: cover;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease;
+        }
+
+        .stacked-image:nth-child(1) {
+            transform: rotate(-8deg) translateX(-10px);
+            z-index: 1;
+        }
+
+        .stacked-image:nth-child(2) {
+            transform: rotate(0deg);
+            z-index: 2;
+        }
+
+        .stacked-image:nth-child(3) {
+            transform: rotate(8deg) translateX(10px);
+            z-index: 3;
+        }
+
+        .vibe-card:hover .stacked-image:nth-child(1) {
+            transform: rotate(-12deg) translateX(-20px);
+        }
+
+        .vibe-card:hover .stacked-image:nth-child(3) {
+            transform: rotate(12deg) translateX(20px);
+        }
+
+        /* Single image for cards with one image */
+        .vibe-card-image {
+            width: 100%;
+            height: 280px;
+            object-fit: cover;
+        }
+
+        /* Vibe Card Content */
+        .vibe-card-content {
+            padding: 14px 18px;
+        }
+
+        .vibe-card-title {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 4px;
+        }
+
+        .vibe-card-desc {
+            font-size: 11px;
+            color: var(--text-secondary);
+            line-height: 1.4;
+        }
+
+        .vibe-card-link {
+            display: inline-flex;
+            align-items: center;
+            margin-top: 8px;
+            font-size: 11px;
+            color: var(--accent);
+            text-decoration: none;
+            gap: 4px;
+            transition: gap 0.3s ease;
+        }
+
+        .vibe-card-link:hover {
+            gap: 8px;
+        }
+
+        /* Vibe Helper Text */
+        .vibe-helper {
+            text-align: center;
+            margin-top: 30px;
+            font-size: 13px;
+            color: var(--text-light);
+        }
+
+        .vibe-helper-link {
+            color: var(--accent);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .vibe-helper-link:hover {
+            color: #5a7260;
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        #contact {
+            justify-content: center;
+        }
+
+        .contact-wrapper {
+            text-align: center;
+        }
+
+        .contact-message {
+            margin-bottom: 50px;
+        }
+
+        .contact-message-zh {
+            font-size: 22px;
+            color: var(--text-light);
+            margin-bottom: 12px;
+            font-weight: 300;
+        }
+
+        .contact-message-en {
+            font-size: 15px;
+            color: var(--text-light);
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        .contact-methods {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+        }
+
+        .contact-item {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 16px var(--shadow-dark),
+                        -8px -8px 16px var(--shadow-light);
+        }
+
+        .contact-item:active {
+            box-shadow: inset 3px 3px 6px var(--shadow-dark),
+                        inset -3px -3px 6px var(--shadow-light);
+        }
+
+        .contact-icon {
+            margin-bottom: 8px;
+        }
+
+        .contact-icon svg {
+            width: 28px;
+            height: 28px;
+            stroke: var(--text-secondary);
+            fill: none;
+            stroke-width: 1.5;
+        }
+
+        .contact-label {
+            font-size: 13px;
+            color: var(--text-secondary);
+        }
+
+        /* Modal Overlay */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            max-width: 90vw;
+            max-height: 90vh;
+            position: relative;
+        }
+
+        /* Image Modal - Clean without scrollbars */
+        .modal-image-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            max-width: 90vw;
+            max-height: 85vh;
+            overflow: hidden;
+        }
+
+        .modal-image {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            transition: transform 0.1s ease-out;
+            transform-origin: center center;
+            cursor: grab;
+            user-select: none;
+            -webkit-user-drag: none;
+        }
+
+        /* Long image special handling */
+        .modal-image.long-image {
+            max-height: none;
+            max-width: 60vw;
+            height: auto;
+        }
+
+        .modal-image:active {
+            cursor: grabbing;
+        }
+
+        .modal-image.zoomable {
+            cursor: zoom-in;
+        }
+
+        .modal-image.zoomed-in {
+            cursor: grab;
+        }
+
+        .modal-image.zoomed-in:active {
+            cursor: grabbing;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: -45px;
+            right: 0;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            z-index: 10;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.25);
+        }
+
+        .modal-close svg {
+            width: 18px;
+            height: 18px;
+            stroke: white;
+            stroke-width: 2;
+        }
+
+        .modal-zoom-hint {
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 12px;
+            white-space: nowrap;
+        }
+
+        /* Video Modal */
+        .video-modal-content {
+            width: 80vw;
+            max-width: 900px;
+        }
+
+        .video-modal-content video {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Toast Notification */
+        .toast {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%) translateY(20px);
+            background: var(--text-primary);
+            color: white;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            z-index: 3000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Hidden Audio Elements */
+        .hidden-audio {
+            display: none;
+        }
+
+        /* Scroll Indicator */
+        .scroll-indicator {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            opacity: 0.4;
+            transition: opacity 0.3s ease;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .scroll-indicator svg {
+            width: 24px;
+            height: 24px;
+            stroke: var(--text-secondary);
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(8px); }
+        }
+
+        .scroll-indicator.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .ai-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .vibe-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .top-nav {
+                flex-direction: column;
+                gap: 15px;
+                padding: 15px 20px;
+            }
+
+            .nav-menu {
+                gap: 8px;
+            }
+
+            .nav-btn {
+                padding: 10px 16px;
+            }
+
+            .nav-zh {
+                font-size: 13px;
+            }
+
+            .nav-en {
+                font-size: 10px;
+            }
+
+            .main-content {
+                padding-top: 140px;
+            }
+
+            .section {
+                padding: 40px 20px;
+            }
+
+            #home {
+                padding-top: 40px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .gallery-image {
+                height: 140px;
+            }
+
+            .ai-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .vibe-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .vibe-card-images {
+                height: 220px;
+            }
+
+            .vibe-card-image {
+                height: 220px;
+            }
+
+            .stacked-images {
+                width: 150px;
+                height: 170px;
+            }
+
+            .stacked-image {
+                width: 120px;
+                height: 140px;
+            }
+
+            .contact-methods {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .contact-item {
+                width: 80px;
+                height: 80px;
+            }
+
+            .contact-icon svg {
+                width: 24px;
+                height: 24px;
+            }
+
+            .contact-label {
+                font-size: 12px;
+            }
+
+            .category-nav {
+                gap: 8px;
+            }
+
+            .category-btn {
+                padding: 10px 16px;
+                font-size: 12px;
+            }
+
+            .about-box {
+                padding: 20px;
+            }
+
+            .about-content {
+                font-size: 14px;
+            }
+
+            .about-en {
+                font-size: 13px;
+            }
+
+            .career-header {
+                padding: 15px 20px;
+            }
+
+            .career-tags-preview {
+                display: none;
+            }
+
+            .career-header::before {
+                content: '我的履历';
+                font-size: 14px;
+                color: var(--text-secondary);
+            }
+
+            .career-item {
+                padding: 20px;
+            }
+
+            .career-time-company {
+                font-size: 13px;
+            }
+
+            .career-tag {
+                font-size: 10px;
+                padding: 4px 10px;
+            }
+
+            .contact-message-zh {
+                font-size: 18px;
+            }
+
+            .contact-message-en {
+                font-size: 13px;
+            }
+
+            .modal-close {
+                top: -40px;
+                width: 32px;
+                height: 32px;
+            }
+
+            .video-modal-content {
+                width: 95vw;
+            }
+
+            .vibe-helper {
+                font-size: 12px;
+                margin-top: 25px;
+            }
+
+            .modal-zoom-hint {
+                font-size: 11px;
+            }
+
+            .modal-image.long-image {
+                max-width: 90vw;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-nav {
+                padding: 12px 15px;
+            }
+
+            .logo-btn {
+                padding: 10px 16px;
+            }
+
+            .logo-zh {
+                font-size: 14px;
+            }
+
+            .logo-en {
+                font-size: 11px;
+            }
+
+            .nav-menu {
+                gap: 6px;
+            }
+
+            .nav-btn {
+                padding: 8px 12px;
+            }
+
+            .nav-zh {
+                font-size: 12px;
+            }
+
+            .nav-en {
+                font-size: 9px;
+            }
+
+            .main-content {
+                padding-top: 130px;
+            }
+
+            .section {
+                padding: 30px 15px;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .gallery-item {
+                padding: 8px;
+            }
+
+            .gallery-image {
+                height: 120px;
+            }
+
+            .gallery-title {
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+
+            .ai-grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+            }
+
+            .music-item, .video-item, .vimeo-item {
+                padding: 10px;
+            }
+
+            .music-title, .video-title {
+                font-size: 10px;
+                padding: 6px 8px;
+            }
+
+            .category-btn {
+                padding: 8px 12px;
+                font-size: 11px;
+            }
+
+            .about-box {
+                padding: 18px;
+            }
+
+            .about-content {
+                font-size: 13px;
+                line-height: 1.9;
+            }
+
+            .about-en {
+                font-size: 12px;
+            }
+
+            .vibe-card-content {
+                padding: 12px 14px;
+            }
+
+            .vibe-card-title {
+                font-size: 14px;
+            }
+
+            .vibe-card-desc {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <header class="top-nav">
+        <!-- Logo Button -->
+        <div class="logo-btn" id="logoBtn">
+            <div class="logo-text">
+                <span class="logo-zh">你好</span>
+                <span class="logo-en">Hello</span>
+            </div>
+            <div class="audio-hint">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <!-- Navigation Menu -->
+        <nav class="nav-menu">
+            <a href="#home" class="nav-btn active" data-section="home">
+                <span class="nav-zh">主页</span>
+                <span class="nav-en">Home</span>
+            </a>
+            <a href="#works" class="nav-btn" data-section="works">
+                <span class="nav-zh">作品</span>
+                <span class="nav-en">Works</span>
+            </a>
+            <a href="#contact" class="nav-btn" data-section="contact">
+                <span class="nav-zh">联系</span>
+                <span class="nav-en">Contact</span>
+            </a>
+        </nav>
+    </header>
+
+    <!-- Hidden Audio for Welcome -->
+    <audio id="welcomeAudio" class="hidden-audio" preload="auto">
+        <source src="./public/audio/Welcome_Voice.webm" type="audio/webm">
+    </audio>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Home Section -->
+        <section id="home" class="section">
+            <div class="section-inner">
+                <!-- About Box -->
+                <div class="about-box neu-flat">
+                    <div class="about-content">
+                        <p class="about-zh">
+                            嗨，我是Colin，是一名90后男生。毕业10年，95%的工作经历都保持在亚马逊这个领域，我对亚马逊的理解也由最开始的Product-to-Customer逐渐转变成了Brand-to-Customer。除了亚马逊，我的兴趣还有很多，策划，创意，文案，翻译，设计，爬山，摄影以及最近很火的Vibe Coding等等。欢迎继续浏览我的履历和作品，希望能碰出合作的火花~
+                        </p>
+                        <p class="about-en">
+                            Hey, I'm Colin — a millennial born in the '90s. It's been about ten years since I graduated, and roughly 95% of my career has been rooted in the Amazon ecosystem. My understanding of the platform has evolved from the classic Product-to-Customer model to what I now see as a true Brand-to-Customer experience. Beyond Amazon, my interests run wide: planning, creative strategy, copywriting, translation, design, hiking, photography, and lately, getting into Vibe Coding. Feel free to dig into my portfolio and experience — maybe we'll spark something good together.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Career Box -->
+                <div class="career-box neu-flat" id="careerBox">
+                    <div class="career-header" id="careerHeader">
+                        <div class="career-tags-preview">
+                            <span class="career-tag-preview">亚马逊运营</span>
+                            <span class="career-tag-preview">10年经验</span>
+                            <span class="career-tag-preview">品牌策划</span>
+                            <span class="career-tag-preview">跨境电商</span>
+                        </div>
+                        <div class="career-toggle">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="12" y1="5" x2="12" y2="19"></line>
+                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                            </svg>
+                        </div>
+                    </div>
+                    <div class="career-list">
+                        <div class="career-item">
+                            <div class="career-time-company">2024.9-2025.6 深圳灵起科技有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">小红书运营</span>
+                                <span class="career-tag">TK运营</span>
+                                <span class="career-tag">AI智能玩具</span>
+                                <span class="career-tag">GMV 8W美金</span>
+                                <span class="career-tag">客单$300</span>
+                                <span class="career-tag">精品白帽</span>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-time-company">2024.3-2024.6 深圳素而美电子商务有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">美妆类目</span>
+                                <span class="career-tag">客单100+美金</span>
+                                <span class="career-tag">GMV 5W美金</span>
+                                <span class="career-tag">净利润7K美金</span>
+                                <span class="career-tag">共用店铺</span>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-time-company">2021.10-2023.4 深圳市邦普特供应链管理有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">代理主管</span>
+                                <span class="career-tag">美妆类目</span>
+                                <span class="career-tag">客单10-20美金</span>
+                                <span class="career-tag">GMV 15W美金</span>
+                                <span class="career-tag">精品白帽</span>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-time-company">2020.6-2021.5 深圳新印象科技有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">美妆类目</span>
+                                <span class="career-tag">客单&lt;10美金</span>
+                                <span class="career-tag">GMV 5W美金</span>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-time-company">2018.8-2019.5 科安创新（深圳）有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">3C类目</span>
+                                <span class="career-tag">客单20-30美金</span>
+                                <span class="career-tag">GMV 40W美金</span>
+                                <span class="career-tag">黑五GMV增长Top5</span>
+                            </div>
+                        </div>
+                        <div class="career-item">
+                            <div class="career-time-company">2016.3-2017.12 深圳统卓网络科技有限公司</div>
+                            <div class="career-tags">
+                                <span class="career-tag">亚马逊运营</span>
+                                <span class="career-tag">家居厨房类目</span>
+                                <span class="career-tag">客单10-30美金</span>
+                                <span class="career-tag">GMV 20W美金</span>
+                                <span class="career-tag">小类Top5</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Works Section -->
+        <section id="works" class="section">
+            <div class="works-container">
+                <!-- Category Navigation -->
+                <div class="category-nav">
+                    <button class="category-btn active" data-category="listing">亚马逊Listing</button>
+                    <button class="category-btn" data-category="creative">文案创意</button>
+                    <button class="category-btn" data-category="photography">摄影作品</button>
+                    <button class="category-btn" data-category="ai">AI创作</button>
+                    <button class="category-btn" data-category="vibe">Vibe Coding</button>
+                </div>
+
+                <!-- Amazon Listing Panel - Zoomable -->
+                <div class="works-panel active" id="listing-panel">
+                    <div class="gallery-grid">
+                        <div class="gallery-item neu-flat" data-image="./images/Amazon Listing Copy 1.webp" data-zoomable="true">
+                            <img src="./images/Amazon Listing Copy 1.webp" alt="Amazon Listing 1" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Amazon Listing Copy 1</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Amazon Listing Copy 2.webp" data-zoomable="true">
+                            <img src="./images/Amazon Listing Copy 2.webp" alt="Amazon Listing 2" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Amazon Listing Copy 2</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Amazon Listing Copy 3.webp" data-zoomable="true">
+                            <img src="./images/Amazon Listing Copy 3.webp" alt="Amazon Listing 3" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Amazon Listing Copy 3</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Amazon Listing Copy 4.webp" data-zoomable="true">
+                            <img src="./images/Amazon Listing Copy 4.webp" alt="Amazon Listing 4" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Amazon Listing Copy 4</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Amazon Listing Copy 5.webp" data-zoomable="true">
+                            <img src="./images/Amazon Listing Copy 5.webp" alt="Amazon Listing 5" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Amazon Listing Copy 5</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Creative Copy Panel - Zoomable -->
+                <div class="works-panel" id="creative-panel">
+                    <div class="gallery-grid">
+                        <div class="gallery-item neu-flat" data-image="./images/Marketing Copy 1.webp" data-zoomable="true">
+                            <img src="./images/Marketing Copy 1.webp" alt="Marketing Copy 1" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Marketing Copy 1</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Marketing Copy 2.webp" data-zoomable="true">
+                            <img src="./images/Marketing Copy 2.webp" alt="Marketing Copy 2" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Marketing Copy 2</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Marketing Copy 3.webp" data-zoomable="true">
+                            <img src="./images/Marketing Copy 3.webp" alt="Marketing Copy 3" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Marketing Copy 3</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Marketing Copy 4.webp" data-zoomable="true">
+                            <img src="./images/Marketing Copy 4.webp" alt="Marketing Copy 4" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Marketing Copy 4</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/Brand Copy.webp" data-zoomable="true" data-long-image="true">
+                            <img src="./images/Brand Copy.webp" alt="Brand Copy" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">Brand Copy</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Photography Panel -->
+                <div class="works-panel" id="photography-panel">
+                    <div class="gallery-grid">
+                        <div class="gallery-item neu-flat" data-image="./images/1.webp">
+                            <img src="./images/1.webp" alt="摄影作品1" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">1</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/2.webp">
+                            <img src="./images/2.webp" alt="摄影作品2" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">2</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/3.webp">
+                            <img src="./images/3.webp" alt="摄影作品3" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">3</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/4.webp">
+                            <img src="./images/4.webp" alt="摄影作品4" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">4</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/5.webp">
+                            <img src="./images/5.webp" alt="摄影作品5" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">5</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/6.webp">
+                            <img src="./images/6.webp" alt="摄影作品6" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">6</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/7.webp">
+                            <img src="./images/7.webp" alt="摄影作品7" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">7</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/8.webp">
+                            <img src="./images/8.webp" alt="摄影作品8" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">8</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/9.webp">
+                            <img src="./images/9.webp" alt="摄影作品9" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">9</div>
+                        </div>
+                        <div class="gallery-item neu-flat" data-image="./images/10.webp">
+                            <img src="./images/10.webp" alt="摄影作品10" class="gallery-image" loading="lazy">
+                            <div class="gallery-title">10</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Creation Panel -->
+                <div class="works-panel" id="ai-panel">
+                    <div class="ai-grid">
+                        <!-- Music Items -->
+                        <div class="music-item neu-flat" data-audio="./public/audio/Blueberry_Morning_Bliss.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Blueberry Morning Bliss Cover.webp" alt="Blueberry Morning Bliss" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Blueberry Morning Bliss</div>
+                        </div>
+                        <div class="music-item neu-flat" data-audio="./public/audio/Warm_Air_Between_Notes.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Warm Air Between Notes Cover.webp" alt="Warm Air Between Notes" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Warm Air Between Notes</div>
+                        </div>
+                        <div class="music-item neu-flat" data-audio="./public/audio/Winter_Light_Crossing_Silence.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Winter Light Crossing Silence Cover.webp" alt="Winter Light Crossing Silence" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Winter Light Crossing Silence</div>
+                        </div>
+                        <div class="music-item neu-flat" data-audio="./public/audio/Sunlit_Loops.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Sunlit Loop Cover.webp" alt="Sunlit Loop" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Sunlit Loop</div>
+                        </div>
+                        <div class="music-item neu-flat" data-audio="./public/audio/Keep_It_Secret.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Keep_It_Secret.webp" alt="Keep It Secret" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Keep It Secret</div>
+                        </div>
+                        <div class="music-item neu-flat" data-audio="./public/audio/Memory_Stays_Forever.webm">
+                            <div class="music-cover-container">
+                                <img src="./images/Memory_Stays_Forever.webp" alt="Memory Stays Forever" class="music-cover" loading="lazy">
+                                <div class="music-play-btn">
+                                    <svg class="play-icon" viewBox="0 0 24 24"><polygon points="5,3 19,12 5,21"></polygon></svg>
+                                    <svg class="pause-icon" viewBox="0 0 24 24" style="display:none;"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
+                                </div>
+                            </div>
+                            <div class="music-title">Memory Stays Forever</div>
+                        </div>
+                        <!-- Video Items - Vimeo Embeds -->
+                        <div class="vimeo-item neu-flat">
+                            <div class="video-thumbnail" style="padding-bottom: 100%; position: relative;">
+                                <iframe src="https://player.vimeo.com/video/1161749490?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="" title="浮于线上画展">
+                                </iframe>
+                            </div>
+                            <div class="video-title">浮于线上画展</div>
+                        </div>
+                        <div class="vimeo-item neu-flat">
+                            <div class="video-thumbnail" style="padding-bottom: 100%; position: relative;">
+                                <iframe src="https://player.vimeo.com/video/1161755144?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 12px;" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media" allowfullscreen="" title="AI动漫">
+                                </iframe>
+                            </div>
+                            <div class="video-title">AI动漫</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vibe Coding Panel -->
+                <div class="works-panel" id="vibe-panel">
+                    <div class="vibe-grid">
+                        <div class="vibe-card">
+                            <a href="https://textcardmaker.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                                <div class="vibe-card-inner">
+                                    <div class="vibe-card-images">
+                                        <div class="stacked-images">
+                                            <img src="./images/text card maker 1.webp" alt="Text Card Maker 1" class="stacked-image" loading="lazy">
+                                            <img src="./images/text card maker 2.webp" alt="Text Card Maker 2" class="stacked-image" loading="lazy">
+                                            <img src="./images/text card maker 3.webp" alt="Text Card Maker 3" class="stacked-image" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="vibe-card-content">
+                                        <div class="vibe-card-title">Text Card Maker</div>
+                                        <div class="vibe-card-desc">文字卡片生成器，支持多种样式和布局</div>
+                                        <span class="vibe-card-link">访问项目 →</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vibe-card">
+                            <a href="https://instantcollage.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                                <div class="vibe-card-inner">
+                                    <div class="vibe-card-images">
+                                        <div class="stacked-images">
+                                            <img src="./images/Instant Collage 1.webp" alt="Instant Collage 1" class="stacked-image" loading="lazy">
+                                            <img src="./images/Instant Collage 2.webp" alt="Instant Collage 2" class="stacked-image" loading="lazy">
+                                            <img src="./images/Instant Collage 3.webp" alt="Instant Collage 3" class="stacked-image" loading="lazy">
+                                        </div>
+                                    </div>
+                                    <div class="vibe-card-content">
+                                        <div class="vibe-card-title">Instant Collage</div>
+                                        <div class="vibe-card-desc">即时拼贴工具，快速创建图片拼贴</div>
+                                        <span class="vibe-card-link">访问项目 →</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="vibe-card">
+                            <a href="https://mybookshelf-sandy.vercel.app/" target="_blank" rel="noopener noreferrer" style="text-decoration: none;">
+                                <div class="vibe-card-inner">
+                                    <img src="./images/独屿ISLET.webp" alt="独屿 Islet" class="vibe-card-image" loading="lazy">
+                                    <div class="vibe-card-content">
+                                        <div class="vibe-card-title">独屿 Islet</div>
+                                        <div class="vibe-card-desc">个人专属的数字小岛</div>
+                                        <span class="vibe-card-link">访问项目 →</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="vibe-helper">
+                        如果打不开项目链接，请使用<a href="https://buy.cloudss.org/aff.php?aff=7976" target="_blank" rel="noopener noreferrer" class="vibe-helper-link">此工具</a>。
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section">
+            <div class="contact-wrapper">
+                <div class="contact-message">
+                    <p class="contact-message-zh">如有合作需要，欢迎联系我</p>
+                    <p class="contact-message-en">If you're looking for collaboration,<br>please feel free to contact me.</p>
+                </div>
+                <div class="contact-methods">
+                    <div class="contact-item neu-flat" data-copy="CY0415000" data-label="微信号已复制">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-label">微信</div>
+                    </div>
+                    <div class="contact-item neu-flat" data-copy="888-888-888" data-label="电话号码已复制">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-label">电话</div>
+                    </div>
+                    <div class="contact-item neu-flat" data-copy="cai19930820@163.com" data-label="邮箱地址已复制">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-label">邮箱</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="6 9 12 15 18 9"></polyline>
+        </svg>
+    </div>
+
+    <!-- Image Modal with Smooth Wheel Zoom -->
+    <div class="modal-overlay" id="imageModal">
+        <div class="modal-content">
+            <div class="modal-close" id="imageModalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <div class="modal-image-container" id="modalImageContainer">
+                <img src="" alt="Preview" class="modal-image" id="modalImage">
+            </div>
+            <div class="modal-zoom-hint" id="modalZoomHint">滚动鼠标滚轮缩放图片</div>
+        </div>
+    </div>
+
+    <!-- Video Modal -->
+    <div class="modal-overlay" id="videoModal">
+        <div class="modal-content video-modal-content">
+            <div class="modal-close" id="videoModalClose">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18"></line>
+                    <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+            </div>
+            <video controls="" id="modalVideo">
+                <source src="" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast"></div>
+
+    <!-- Hidden Audio Player for Music -->
+    <audio id="musicPlayer" class="hidden-audio" preload="none"></audio>
+
+    <script>
+        // Navigation - Click only, no scroll-based updates
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.section');
+        
+        // Track if we're currently scrolling due to a nav click
+        let isScrollingFromClick = false;
+        let scrollEndTimer = null;
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetId = btn.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                // Set flag to prevent scroll-based updates during smooth scroll
+                isScrollingFromClick = true;
+                
+                // Clear any existing timer
+                if (scrollEndTimer) {
+                    clearTimeout(scrollEndTimer);
+                }
+                
+                // Immediately update ONLY the clicked button - no other buttons should change
+                navBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                // Smooth scroll to section
+                targetSection.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                
+                // Reset flag after scroll animation completes (give it enough time)
+                scrollEndTimer = setTimeout(() => {
+                    isScrollingFromClick = false;
+                }, 1000);
+            });
+        });
+
+        // Scroll-based nav updates - only when NOT triggered by click
+        window.addEventListener('scroll', () => {
+            // Skip if we're scrolling from a nav click
+            if (isScrollingFromClick) {
+                return;
+            }
+            
+            let current = '';
+            const scrollPos = window.scrollY + 150;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                
+                if (scrollPos >= sectionTop && scrollPos < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            // Only update if we found a valid section and it's different from current active
+            if (current) {
+                const currentActiveBtn = document.querySelector('.nav-btn.active');
+                const newActiveBtn = document.querySelector(`.nav-btn[href="#${current}"]`);
+                
+                if (currentActiveBtn !== newActiveBtn) {
+                    navBtns.forEach(btn => btn.classList.remove('active'));
+                    if (newActiveBtn) {
+                        newActiveBtn.classList.add('active');
+                    }
+                }
+            }
+
+            // Hide scroll indicator after scrolling
+            const scrollIndicator = document.getElementById('scrollIndicator');
+            if (window.scrollY > 100) {
+                scrollIndicator.classList.add('hidden');
+            } else {
+                scrollIndicator.classList.remove('hidden');
+            }
+        });
+
+        // Logo Welcome Audio
+        const logoBtn = document.getElementById('logoBtn');
+        const welcomeAudio = document.getElementById('welcomeAudio');
+        let isWelcomePlaying = false;
+
+        logoBtn.addEventListener('click', () => {
+            if (isWelcomePlaying) {
+                welcomeAudio.pause();
+                welcomeAudio.currentTime = 0;
+                logoBtn.classList.remove('playing');
+                isWelcomePlaying = false;
+            } else {
+                welcomeAudio.play().catch(e => console.log('Audio play failed:', e));
+                logoBtn.classList.add('playing');
+                isWelcomePlaying = true;
+            }
+        });
+
+        welcomeAudio.addEventListener('ended', () => {
+            logoBtn.classList.remove('playing');
+            isWelcomePlaying = false;
+        });
+
+        // Career Toggle
+        const careerBox = document.getElementById('careerBox');
+        const careerHeader = document.getElementById('careerHeader');
+
+        careerHeader.addEventListener('click', () => {
+            careerBox.classList.toggle('expanded');
+        });
+
+        // Category Navigation
+        const categoryBtns = document.querySelectorAll('.category-btn');
+        const worksPanels = document.querySelectorAll('.works-panel');
+
+        categoryBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const category = btn.dataset.category;
+                
+                categoryBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                
+                worksPanels.forEach(p => p.classList.remove('active'));
+                document.getElementById(`${category}-panel`).classList.add('active');
+            });
+        });
+
+        // Image Modal with Smooth Mouse Wheel Zoom
+        const imageModal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        const modalImageContainer = document.getElementById('modalImageContainer');
+        const modalZoomHint = document.getElementById('modalZoomHint');
+        const imageModalClose = document.getElementById('imageModalClose');
+        
+        let currentScale = 1;
+        let isZoomable = false;
+        let isLongImage = false;
+        let isDragging = false;
+        let startX, startY, translateX = 0, translateY = 0;
+        const minScale = 0.5;
+        const maxScale = 4;
+
+        // Handle all gallery items
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const imageSrc = item.dataset.image;
+                const zoomable = item.dataset.zoomable === 'true';
+                const longImage = item.dataset.longImage === 'true';
+                
+                if (imageSrc) {
+                    modalImage.src = imageSrc;
+                    isZoomable = zoomable;
+                    isLongImage = longImage;
+                    currentScale = 1;
+                    translateX = 0;
+                    translateY = 0;
+                    
+                    // Handle long image class
+                    if (longImage) {
+                        modalImage.classList.add('long-image');
+                    } else {
+                        modalImage.classList.remove('long-image');
+                    }
+                    
+                    updateImageTransform();
+                    
+                    if (zoomable) {
+                        modalImage.classList.add('zoomable');
+                        modalZoomHint.style.display = 'block';
+                        modalZoomHint.textContent = '滚动鼠标滚轮缩放图片';
+                    } else {
+                        modalImage.classList.remove('zoomable');
+                        modalZoomHint.style.display = 'none';
+                    }
+                    
+                    imageModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+
+        // Update image transform
+        function updateImageTransform() {
+            modalImage.style.transform = `translate(${translateX}px, ${translateY}px) scale(${currentScale})`;
+            
+            if (currentScale > 1) {
+                modalImage.classList.add('zoomed-in');
+                modalImage.classList.remove('zoomable');
+            } else {
+                modalImage.classList.remove('zoomed-in');
+                if (isZoomable) {
+                    modalImage.classList.add('zoomable');
+                }
+            }
+        }
+
+        // Mouse wheel zoom - smooth and flexible
+        modalImageContainer.addEventListener('wheel', (e) => {
+            if (!isZoomable) return;
+            
+            e.preventDefault();
+            
+            const delta = e.deltaY > 0 ? -0.1 : 0.1;
+            const newScale = Math.max(minScale, Math.min(maxScale, currentScale + delta));
+            
+            // If zooming out to 1 or below, reset position
+            if (newScale <= 1) {
+                translateX = 0;
+                translateY = 0;
+            }
+            
+            currentScale = newScale;
+            updateImageTransform();
+            
+            // Update hint
+            if (currentScale > 1) {
+                modalZoomHint.textContent = '拖动图片移动位置';
+            } else {
+                modalZoomHint.textContent = '滚动鼠标滚轮缩放图片';
+            }
+        });
+
+        // Drag to pan when zoomed
+        modalImage.addEventListener('mousedown', (e) => {
+            if (currentScale <= 1) return;
+            
+            isDragging = true;
+            startX = e.clientX - translateX;
+            startY = e.clientY - translateY;
+            modalImage.style.cursor = 'grabbing';
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (!isDragging) return;
+            
+            translateX = e.clientX - startX;
+            translateY = e.clientY - startY;
+            updateImageTransform();
+        });
+
+        document.addEventListener('mouseup', () => {
+            if (isDragging) {
+                isDragging = false;
+                if (currentScale > 1) {
+                    modalImage.style.cursor = 'grab';
+                }
+            }
+        });
+
+        // Close modal
+        function closeImageModal() {
+            imageModal.classList.remove('active');
+            document.body.style.overflow = '';
+            currentScale = 1;
+            translateX = 0;
+            translateY = 0;
+            isDragging = false;
+            isLongImage = false;
+            modalImage.classList.remove('zoomed-in', 'zoomable', 'long-image');
+        }
+
+        imageModalClose.addEventListener('click', closeImageModal);
+
+        imageModal.addEventListener('click', (e) => {
+            if (e.target === imageModal) {
+                closeImageModal();
+            }
+        });
+
+        // Music Player - Fixed toggle behavior
+        const musicPlayer = document.getElementById('musicPlayer');
+        const musicItems = document.querySelectorAll('.music-item');
+        let currentPlayingItem = null;
+
+        musicItems.forEach(item => {
+            const playIcon = item.querySelector('.play-icon');
+            const pauseIcon = item.querySelector('.pause-icon');
+
+            item.addEventListener('click', () => {
+                const audioSrc = item.dataset.audio;
+                
+                if (currentPlayingItem === item) {
+                    // Same item clicked - toggle play/pause
+                    if (musicPlayer.paused) {
+                        musicPlayer.play().catch(e => console.log('Audio play failed:', e));
+                        item.classList.add('playing');
+                        playIcon.style.display = 'none';
+                        pauseIcon.style.display = 'block';
+                    } else {
+                        musicPlayer.pause();
+                        item.classList.remove('playing');
+                        playIcon.style.display = 'block';
+                        pauseIcon.style.display = 'none';
+                    }
+                } else {
+                    // Different item clicked - stop previous and play new
+                    if (currentPlayingItem) {
+                        currentPlayingItem.classList.remove('playing');
+                        const prevPlay = currentPlayingItem.querySelector('.play-icon');
+                        const prevPause = currentPlayingItem.querySelector('.pause-icon');
+                        prevPlay.style.display = 'block';
+                        prevPause.style.display = 'none';
+                    }
+                    
+                    musicPlayer.src = audioSrc;
+                    musicPlayer.play().catch(e => console.log('Audio play failed:', e));
+                    item.classList.add('playing');
+                    playIcon.style.display = 'none';
+                    pauseIcon.style.display = 'block';
+                    currentPlayingItem = item;
+                }
+            });
+        });
+
+        musicPlayer.addEventListener('ended', () => {
+            if (currentPlayingItem) {
+                currentPlayingItem.classList.remove('playing');
+                const playIcon = currentPlayingItem.querySelector('.play-icon');
+                const pauseIcon = currentPlayingItem.querySelector('.pause-icon');
+                playIcon.style.display = 'block';
+                pauseIcon.style.display = 'none';
+                currentPlayingItem = null;
+            }
+        });
+
+        // Video Modal (kept for potential future use)
+        const videoModal = document.getElementById('videoModal');
+        const modalVideo = document.getElementById('modalVideo');
+        const videoModalClose = document.getElementById('videoModalClose');
+
+        videoModalClose.addEventListener('click', () => {
+            modalVideo.pause();
+            modalVideo.src = '';
+            videoModal.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        videoModal.addEventListener('click', (e) => {
+            if (e.target === videoModal) {
+                modalVideo.pause();
+                modalVideo.src = '';
+                videoModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Contact Copy
+        document.querySelectorAll('.contact-item').forEach(item => {
+            item.addEventListener('click', () => {
+                const copyText = item.dataset.copy;
+                const label = item.dataset.label;
+                
+                navigator.clipboard.writeText(copyText).then(() => {
+                    showToast(label);
+                });
+            });
+        });
+
+        // Toast Function
+        const toast = document.getElementById('toast');
+        function showToast(message) {
+            toast.textContent = message;
+            toast.classList.add('show');
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 2000);
+        }
+
+        // Keyboard Navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                closeImageModal();
+                modalVideo.pause();
+                modalVideo.src = '';
+                videoModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Initial scroll indicator visibility
+        if (window.scrollY > 100) {
+            document.getElementById('scrollIndicator').classList.add('hidden');
+        }
+    </script>
+
+
+</body></html>
